@@ -16,7 +16,7 @@
     <tags>nunitlite touchserver</tags>
   </metadata>
   <files>
-    <file src="build\bin\Release\Touch.Server.exe" target="content\tools" />
+    <file src="build\bin\Release\Touch.Server.exe" target="runtimes\Touch.Server.exe" />
     <file src="LICENSE" target="LICENSE" />
   </files>
 </package>
