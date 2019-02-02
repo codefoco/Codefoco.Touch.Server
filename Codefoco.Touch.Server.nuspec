@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>Codefoco.Touch.Server</id>
-    <version>0.1.0-beta-build0</version>
+    <version>1.0.2</version>
     <authors>Sebastien Pouliot</authors>
     <owners>Codefoco</owners>
     <licenseUrl>https://github.com/codefoco/Codefoco.Touch.Server/LICENSE</licenseUrl>
@@ -16,7 +16,7 @@
     <tags>nunitlite touchserver</tags>
   </metadata>
   <files>
-    <file src="build\bin\Release\Touch.Server.exe" target="tools" />
+    <file src="build\bin\Release\Touch.Server.exe" target="content\tools" />
     <file src="LICENSE" target="LICENSE" />
   </files>
 </package>
