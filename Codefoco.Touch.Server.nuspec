@@ -16,12 +16,9 @@
     <developmentDependency>true</developmentDependency>
     <tags>nunitlite touchserver</tags>
   </metadata>
-  <contentFiles>
-    <files include="build\bin\Release\Touch.Server.exe" buildAction="None" copyToOutput="true" flatten="true" />
-</contentFiles>
   <files>
-    <file src="targets\xamarinios\RunSimulatorTests.targets" target="build\xamarinios\RunSimulatorTests.targets" />
-    <file src="targets\xamarintvos\RunSimulatorTests.targets" target="build\xamarintvos\RunSimulatorTests.targets" />
+    <file src="targets/RunSimulatorTests.targets" target="build/RunSimulatorTests.targets" />
+    <file src="build/bin/Release/Touch.Server.exe" target="content/tools/Touch.Server.exe" />
     <file src="LICENSE" target="LICENSE" />
   </files>
 </package>
