@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>Codefoco.Touch.Server</id>
-    <version>1.0.5</version>
+    <version>1.0.6</version>
     <authors>Sebastien Pouliot</authors>
     <owners>Codefoco</owners>
     <licenseUrl>https://github.com/codefoco/Codefoco.Touch.Server/LICENSE</licenseUrl>
@@ -16,9 +16,12 @@
     <developmentDependency>true</developmentDependency>
     <tags>nunitlite touchserver</tags>
   </metadata>
+  <contentFiles>
+    <files include="build\bin\Release\Touch.Server.exe" buildAction="None" copyToOutput="true" flatten="true" />
+</contentFiles>
   <files>
-    <file src="build\bin\Release\Touch.Server.exe" target="content\Touch.Server.exe" />
-    <file src="targets\RunSimulatorTests.targets" target="build" />
+    <file src="targets\xamarinios\RunSimulatorTests.targets" target="build\xamarinios\RunSimulatorTests.targets" />
+    <file src="targets\xamarintvos\RunSimulatorTests.targets" target="build\xamarintvos\RunSimulatorTests.targets" />
     <file src="LICENSE" target="LICENSE" />
   </files>
 </package>

@@ -12,3 +12,7 @@
 
 
 NuGet package for Touch.Server
+
+Running iOS/tvOS tests:
+
+    msbuild /t:RunSimulatorTests MyiOSTest.csproj /p:Configuration=Release /p:Platform=iPhoneSimulator
