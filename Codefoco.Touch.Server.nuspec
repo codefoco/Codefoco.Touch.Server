@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>Codefoco.Touch.Server</id>
-    <version>1.0.2</version>
+    <version>1.0.5</version>
     <authors>Sebastien Pouliot</authors>
     <owners>Codefoco</owners>
     <licenseUrl>https://github.com/codefoco/Codefoco.Touch.Server/LICENSE</licenseUrl>
@@ -13,10 +13,12 @@
     <summary>Touch.Server https://github.com/spouliot/Touch.Unit/tree/master/Touch.Server NUnitLite server runner.</summary>
     <releaseNotes>Release: 2bffe65</releaseNotes>
     <copyright>Copyright © Sebastien Pouliot 2018</copyright>
+    <developmentDependency>true</developmentDependency>
     <tags>nunitlite touchserver</tags>
   </metadata>
   <files>
-    <file src="build\bin\Release\Touch.Server.exe" target="runtimes\Touch.Server.exe" />
+    <file src="build\bin\Release\Touch.Server.exe" target="content\Touch.Server.exe" />
+    <file src="targets\RunSimulatorTests.targets" target="build" />
     <file src="LICENSE" target="LICENSE" />
   </files>
 </package>
