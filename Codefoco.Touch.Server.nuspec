@@ -17,7 +17,7 @@
     <tags>nunitlite touchserver</tags>
   </metadata>
   <files>
-    <file src="targets/RunSimulatorTests.targets" target="build/RunSimulatorTests.targets" />
+    <file src="targets/Codefoco.Touch.Server.targets" target="build/Codefoco.Touch.Server.targets" />
     <file src="build/bin/Release/Touch.Server.exe" target="content/tools/Touch.Server.exe" />
     <file src="LICENSE" target="LICENSE" />
   </files>

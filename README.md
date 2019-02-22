@@ -4,19 +4,18 @@
  Codefoco.Touch.Server
  =====================
 
+
+
  
 | NuGet | Build status |
 | ------|------|
-|[![nuget](https://img.shields.io/nuget/v/Codefoco.Touch.Server.svg)](https://www.nuget.org/packages/Codefoco.Touch.Server)|[![Build status](https://dev.azure.com/NLua/NLua/_apis/build/status/Codefoco.Touch.Server)](https://dev.azure.com/NLua/NLua/_build/latest?definitionId=8)|
+|[![nuget](https://badgen.net/nuget/v/Codefoco.Touch.Server?icon=nuget)](https://www.nuget.org/packages/Codefoco.Touch.Server)|[![Build status](https://dev.azure.com/NLua/NLua/_apis/build/status/Codefoco.Touch.Server)](https://dev.azure.com/NLua/NLua/_build/latest?definitionId=8)|
+
+ This NuGet wraps the [Touch.Server](https://github.com/spouliot/Touch.Unit/tree/master/Touch.Server) from [Sebastien Pouliot](https://github.com/spouliot/), to make easier to Run [NUnitLite](https://docs.microsoft.com/en-us/xamarin/ios/deploy-test/touch.unit) from command line using MSBuild
 
 
+Use msbuild to run the `iOS` or `tvOS` tests.
 
-NuGet package for Touch.Server
-
-🐛 a manual edit is necessary in order to add the `.targets` file to `.csproj`.
-Append the import element to `.csproj` to add the `RunSimulatorTests` target to the project.
-
-    <Import Project="..\..\..\packages\Codefoco.Touch.Server.1.0.7\build\RunSimulatorTests.targets" Condition="Exists('..\..\..\packages\Codefoco.Touch.Server.1.0.7\build\RunSimulatorTests.targets')" />
 
 Running iOS/tvOS tests:
 
