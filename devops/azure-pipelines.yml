@@ -24,9 +24,9 @@ steps:
     arguments: 'Codefoco.Touch.Server Codefoco.Touch.Server.nuspec'
 
 - task: MSBuild@1
-  displayName: 'Build solution Codefoco.Touch.Server.sln'
+  displayName: 'Build solution Touch.Server.sln'
   inputs:
-    solution: 'Codefoco.Touch.Server.sln'
+    solution: 'Touch.Server.sln'
     configuration: Release
 
 - script: 'nuget setapikey $(apikey)'
