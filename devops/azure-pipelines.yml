@@ -4,7 +4,7 @@ pool:
 
 
 steps:
-- powershell: 'Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString(''https://chocolatey.org/install.ps1'))'
+- powershell: 'Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString(''https://chocolatey.org/install.ps1''))'
   displayName: 'Install Choco'
 
 - script: 'choco install gitversion.portable --pre '
@@ -24,7 +24,7 @@ steps:
     arguments: 'Codefoco.Touch.Server Codefoco.Touch.Server.nuspec'
 
 - task: MSBuild@1
-  displayName: 'Build solution *.sln'
+  displayName: 'Build solution Codefoco.Touch.Server.sln'
   inputs:
     solution: 'Codefoco.Touch.Server.sln'
     configuration: Release
