@@ -1,0 +1,57 @@
+pool:
+  name: Hosted VS2017
+  demands: msbuild
+
+
+steps:
+- powershell: 'Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString(''https://chocolatey.org/install.ps1'))'
+  displayName: 'Install Choco'
+
+- script: 'choco install gitversion.portable --pre '
+  displayName: 'Install GitVersion'
+
+- task: NuGetToolInstaller@1
+  displayName: 'Use NuGet 4.7.3'
+  inputs:
+    versionSpec: 4.7.3
+    checkLatest: true
+
+- task: PowerShell@2
+  displayName: 'PreBuild Script'
+  inputs:
+    targetType: filePath
+    filePath: ./devops/PreBuild.ps1
+    arguments: 'Codefoco.Touch.Server Codefoco.Touch.Server.nuspec'
+
+- task: MSBuild@1
+  displayName: 'Build solution *.sln'
+  inputs:
+    solution: 'Codefoco.Touch.Server.sln'
+    configuration: Release
+
+- script: 'nuget setapikey $(apikey)'
+  displayName: 'Set NuGet API Key'
+
+- task: PowerShell@2
+  displayName: 'Package NuGet'
+  inputs:
+    targetType: filePath
+    filePath: ./devops/Package.ps1
+    arguments: 'Codefoco.Touch.Server Codefoco.Touch.Server.nuspec'
+
+- script: 'rename *.nupkg Codefoco.Touch.Server.nupkg'
+  displayName: 'Rename Nuget Package'
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Save Codefoco.Touch.Server.nupkg Artifact'
+  inputs:
+    PathtoPublish: Codefoco.Touch.Server.nupkg
+    ArtifactName: Codefoco.Touch.Server.nupkg
+
+- task: PowerShell@2
+  displayName: 'Publish NuGet'
+  inputs:
+    targetType: filePath
+    filePath: ./devops/Publish.ps1
+    arguments: Codefoco.Touch.Server
+

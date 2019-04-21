@@ -6,7 +6,7 @@
         <TargetFrameworkIdentifier Condition=" '$(TargetFrameworkIdentifier)' == ''">Xamarin.iOS</TargetFrameworkIdentifier>
         <DeviceKind Condition=" '$(TargetFrameworkIdentifier)' == 'Xamarin.iOS'">iPhone</DeviceKind>
         <DeviceKind Condition=" '$(TargetFrameworkIdentifier)' == 'Xamarin.TVOS'">Apple TV</DeviceKind>
-        <DevicesXmlFile>$(OutputPath)/DevicesXmlFile.xml</DevicesXmlFile>
+        <DevicesXmlFile>$(MSBuildProjectDirectory)/$(OutputPath)/DevicesXmlFile.xml</DevicesXmlFile>
         <TestResultName Condition=" '$(TestResultName)' == '' ">TEST-Result-$(TargetFrameworkIdentifier)</TestResultName>
         <TestResult Condition=" '$(TestResult)' == '' ">$(TestResultName).xml</TestResult>
     </PropertyGroup>
