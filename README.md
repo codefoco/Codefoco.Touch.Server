@@ -14,9 +14,18 @@
  This NuGet wraps the [Touch.Server](https://github.com/spouliot/Touch.Unit/tree/master/Touch.Server) from [Sebastien Pouliot](https://github.com/spouliot/), to make easier to Run [NUnitLite](https://docs.microsoft.com/en-us/xamarin/ios/deploy-test/touch.unit) from command line using MSBuild
 
 
-Use msbuild to run the `iOS` or `tvOS` tests.
+Dependencies
+---------
+Before building fetch the submodules:
 
+    git submodule update --init --recursive
 
-Running iOS/tvOS tests:
+Building
+---------
+    msbuild
+
+Testing
+---------
+Use msbuild to run the `iOS` or `tvOS` tests
 
     msbuild /t:RunSimulatorTests MyiOSTest.csproj /p:Configuration=Release /p:Platform=iPhoneSimulator
