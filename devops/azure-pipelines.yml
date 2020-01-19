@@ -1,7 +1,8 @@
 pool:
-  name: Hosted VS2017
-  demands: msbuild
-
+  vmImage: 'windows-2019'
+  demands:
+  - msbuild
+  - visualstudio
 
 steps:
 - checkout: self 
@@ -14,10 +15,9 @@ steps:
   displayName: 'Install GitVersion'
 
 - task: NuGetToolInstaller@1
-  displayName: 'Use NuGet 4.7.3'
+  displayName: 'Use NuGet 5.4.0'
   inputs:
-    versionSpec: 4.7.3
-    checkLatest: true
+    versionSpec: 5.4.0
 
 - task: PowerShell@2
   displayName: 'PreBuild Script'
@@ -25,6 +25,8 @@ steps:
     targetType: filePath
     filePath: ./devops/PreBuild.ps1
     arguments: 'Codefoco.Touch.Server Codefoco.Touch.Server.nuspec'
+    errorActionPreference: 'silentlyContinue'
+    pwsh: true
 
 - task: MSBuild@1
   displayName: 'Build solution Touch.Server.sln'

@@ -12,7 +12,7 @@
     <description>Touch.Server iOS runner.</description>
     <summary>Touch.Server https://github.com/spouliot/Touch.Unit/tree/master/Touch.Server NUnitLite server runner.</summary>
     <releaseNotes>Release: 2bffe65</releaseNotes>
-    <copyright>Copyright © Sebastien Pouliot 2018</copyright>
+    <copyright>Copyright © Sebastien Pouliot / Vinicius Jarina 2020</copyright>
     <developmentDependency>true</developmentDependency>
     <tags>nunitlite touchserver</tags>
   </metadata>
