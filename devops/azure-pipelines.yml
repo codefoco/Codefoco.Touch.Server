@@ -15,6 +15,9 @@ pool:
   - vstest
 
 steps:
+- checkout: self
+  submodules: 'true'
+
 - template: common-dotnet.yml@templates
 - template: common-win.yml@templates
 
