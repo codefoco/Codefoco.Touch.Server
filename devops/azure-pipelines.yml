@@ -5,6 +5,7 @@ resources:
     - repository: templates
       type: github
       name: codefoco/AzureDevopsTemplates
+      endpoint: codefoco
 
 pool:
   vmImage: 'windows-2019'
