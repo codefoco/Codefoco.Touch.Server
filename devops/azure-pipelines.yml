@@ -8,9 +8,8 @@ resources:
       endpoint: codefoco
       
 jobs:
-- job: 'NLuaWindows'
+- job: 'BuildWindows'
   displayName: 'Windows'
-  dependsOn: 'NLuaMac'
   variables:
     - group: 'Keys'
 
