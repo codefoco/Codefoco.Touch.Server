@@ -6,60 +6,67 @@ resources:
       type: github
       name: codefoco/AzureDevopsTemplates
       endpoint: codefoco
+      
+jobs:
+- job: 'NLuaWindows'
+  displayName: 'Windows'
+  dependsOn: 'NLuaMac'
+  variables:
+    - group: 'Keys'
 
-pool:
-  vmImage: 'windows-2019'
-  demands:
-  - msbuild
-  - visualstudio
-  - vstest
+  pool:
+    vmImage: 'windows-2019'
+    demands:
+    - msbuild
+    - visualstudio
+    - vstest
 
-steps:
-- checkout: self
-  submodules: 'true'
+  steps:
+  - checkout: self
+    submodules: 'true'
 
-- template: common-dotnet.yml@templates
-- template: common-win.yml@templates
+  - template: common-dotnet.yml@templates
+  - template: common-win.yml@templates
 
-- task: PowerShell@2
-  displayName: 'PreBuild Script'
-  inputs:
-    targetType: filePath
-    filePath: ./devops/PreBuild.ps1
-    arguments: 'Codefoco.Touch.Server Codefoco.Touch.Server.nuspec'
-    errorActionPreference: 'silentlyContinue'
-    pwsh: true
+  - task: PowerShell@2
+    displayName: 'PreBuild Script'
+    inputs:
+      targetType: filePath
+      filePath: ./devops/PreBuild.ps1
+      arguments: 'Codefoco.Touch.Server Codefoco.Touch.Server.nuspec'
+      errorActionPreference: 'silentlyContinue'
+      pwsh: true
 
-- task: MSBuild@1
-  displayName: 'Build solution Touch.Server.sln'
-  inputs:
-    solution: 'Touch.Server.sln'
-    configuration: Release
+  - task: MSBuild@1
+    displayName: 'Build solution Touch.Server.sln'
+    inputs:
+      solution: 'Touch.Server.sln'
+      configuration: Release
 
-- script: 'nuget setapikey $(apikey)'
-  displayName: 'Set NuGet API Key'
+  - script: 'nuget setapikey $(apikey)'
+    displayName: 'Set NuGet API Key'
 
-- task: PowerShell@2
-  displayName: 'Package NuGet'
-  inputs:
-    targetType: filePath
-    filePath: ./devops/Package.ps1
-    arguments: 'Codefoco.Touch.Server Codefoco.Touch.Server.nuspec'
+  - task: PowerShell@2
+    displayName: 'Package NuGet'
+    inputs:
+      targetType: filePath
+      filePath: ./devops/Package.ps1
+      arguments: 'Codefoco.Touch.Server Codefoco.Touch.Server.nuspec'
 
-- script: 'rename *.nupkg Codefoco.Touch.Server.nupkg'
-  displayName: 'Rename Nuget Package'
+  - script: 'rename *.nupkg Codefoco.Touch.Server.nupkg'
+    displayName: 'Rename Nuget Package'
 
-- task: PublishBuildArtifacts@1
-  displayName: 'Save Codefoco.Touch.Server.nupkg Artifact'
-  inputs:
-    PathtoPublish: Codefoco.Touch.Server.nupkg
-    ArtifactName: Codefoco.Touch.Server.nupkg
+  - task: PublishBuildArtifacts@1
+    displayName: 'Save Codefoco.Touch.Server.nupkg Artifact'
+    inputs:
+      PathtoPublish: Codefoco.Touch.Server.nupkg
+      ArtifactName: Codefoco.Touch.Server.nupkg
 
-- task: PowerShell@2
-  displayName: 'Publish NuGet'
-  inputs:
-    targetType: filePath
-    filePath: ./devops/Publish.ps1
-    arguments: Codefoco.Touch.Server
+  - task: PowerShell@2
+    displayName: 'Publish NuGet'
+    inputs:
+      targetType: filePath
+      filePath: ./devops/Publish.ps1
+      arguments: Codefoco.Touch.Server
 
-- template: send-telegram.yml@templates
+  - template: send-telegram.yml@templates
