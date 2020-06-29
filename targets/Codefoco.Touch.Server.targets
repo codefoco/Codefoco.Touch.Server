@@ -26,7 +26,9 @@
     </Target>
     <Target Name="RunSimulatorTests"  Condition="'$(OS)'=='Unix' and Exists('/usr/lib/libc.dylib')" DependsOnTargets="FetchDeviceSpecs" >
         <Message Text="Running Simulator tests [@(SimRuntime):@(SimDeviceType)]" />
-        <Exec Command="mono $(TouchServerExe) --launchsim &quot;$(AppBundleDir)&quot; --logfile=result.xml  -autoexit -skipheader --verbose --mtouch-argument=&quot;--sdkroot=$(_SdkDevPath) --sdk=$(MtouchSdkVersion)&quot; --device=&quot;:v2:runtime=@(SimRuntime),devicetype=@(SimDeviceType)&quot;" />
+        <Exec Command="rm result.xml" />
+        <Exec Command="rm $(TestResult)" />
+        <Exec Command="mono $(TouchServerExe) --launchsim &quot;$(AppBundleDir)&quot; --logfile=result.xml  -autoexit -skipheader --verbose --mtouch-argument=&quot;--sdkroot=$(_SdkDevPath) --sdk=$(MtouchSdkVersion)&quot; --device=&quot;:v2:runtime=@(SimRuntime),devicetype=@(SimDeviceType) $(ExtraMTouchParam)&quot;" />
         <!-- This deserver some explanation:
         
          There are two bug on NUnitLite.
