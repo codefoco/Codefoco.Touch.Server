@@ -30,7 +30,7 @@
         <Exec Command="rm result.xml" />
         <Exec Command="touch $(TestResult)" />
         <Exec Command="rm $(TestResult)" />
-        <Exec Command="mono $(TouchServerExe) --launchsim &quot;$(AppBundleDir)&quot; --logfile=result.xml  -autoexit -skipheader --verbose --mtouch-argument=&quot;--sdkroot=$(_SdkDevPath) --sdk=$(MtouchSdkVersion)&quot; --device=&quot;:v2:runtime=@(SimRuntime),devicetype=@(SimDeviceType) $(ExtraMTouchParam)&quot;" />
+        <Exec Command="mono $(TouchServerExe) --launchsim &quot;$(AppBundleDir)&quot; --logfile=result.xml  -autoexit -skipheader --verbose --mtouch-argument=&quot;--sdkroot=$(_SdkDevPath) &quot; --device=&quot;:v2:runtime=@(SimRuntime),devicetype=@(SimDeviceType) $(ExtraMTouchParam)&quot;" />
         <!-- This deserver some explanation:
         
          There are two bug on NUnitLite.
