@@ -7,10 +7,10 @@
     <owners>Codefoco</owners>
     <licenseUrl>https://github.com/codefoco/Codefoco.Touch.Server/LICENSE</licenseUrl>
     <projectUrl>https://github.com/spouliot/Touch.Unit</projectUrl>
-    <iconUrl>https://raw.githubusercontent.com/codefoco/Codefoco.Touch.Server/master/Codefoco.Touch.Server.png</iconUrl>
+    <iconUrl>https://raw.githubusercontent.com/codefoco/Codefoco.Touch.Server/main/Codefoco.Touch.Server.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Touch.Server iOS runner.</description>
-    <summary>Touch.Server https://github.com/spouliot/Touch.Unit/tree/master/Touch.Server NUnitLite server runner.</summary>
+    <summary>Touch.Server https://github.com/spouliot/Touch.Unit/tree/main/Touch.Server NUnitLite server runner.</summary>
     <releaseNotes>Release: 2bffe65</releaseNotes>
     <copyright>Copyright © Sebastien Pouliot / Vinicius Jarina 2021</copyright>
     <developmentDependency>true</developmentDependency>

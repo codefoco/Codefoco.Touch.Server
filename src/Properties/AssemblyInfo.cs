@@ -17,6 +17,6 @@
 // and "{Major}.{Minor}.{Build}.*" will update just the revision.
 
 [assembly: AssemblyVersion("0.1.0.0")]
-[assembly: AssemblyInformationalVersion("0.1.0+0.Branch.master.Sha.94b1daaa58cb285279aa1a01a6472e6526f6b266")]
+[assembly: AssemblyInformationalVersion("0.1.0+0.Branch.main.Sha.94b1daaa58cb285279aa1a01a6472e6526f6b266")]
 [assembly: AssemblyFileVersion("0.1.0.0")]
 
